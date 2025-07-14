@@ -1,4 +1,4 @@
-import { Context, Micro } from "effect";
+import { Micro } from "effect";
 import counter from "./counter";
 import type { CounterRepository } from "../application/repo/counter-repos";
 
@@ -12,8 +12,3 @@ export const counterAdapter: CounterRepository = {
   getCounter: () => Micro.promise(() => counter.getCounter()),
   resetCounter: () => Micro.succeed(counter.resetCounter()),
 };
-
-export class CounterAdapterTag extends Context.Tag("CounterAdapter")<
-  CounterAdapterTag,
-  CounterRepository
->() {}

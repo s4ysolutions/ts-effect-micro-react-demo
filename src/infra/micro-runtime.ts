@@ -1,7 +1,8 @@
 import { Context, Micro } from "effect";
-import { counterAdapter, CounterAdapterTag } from "./counter-adapter";
+import { counterAdapter } from "./counter-adapter";
+import { CounterRepositoryTag as CounterRepositoryTag } from "../application/repo/counter-repos";
 
-const appContext = Context.make(CounterAdapterTag, counterAdapter);
+const appContext = Context.make(CounterRepositoryTag, counterAdapter);
 
 // const appContext = Context.merge(
 //   Context.make(CounterAdapterTag, counterAdapter),

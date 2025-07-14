@@ -1,7 +1,7 @@
 import { Micro } from "effect";
-import { CounterAdapterTag } from "../infra/counter-adapter";
+import { CounterRepositoryTag } from "./repo/counter-repos";
 
 export const observeCounter = Micro.gen(function* () {
-  const repo = yield* Micro.service(CounterAdapterTag);
+  const repo = yield* Micro.service(CounterRepositoryTag);
   return yield* repo.getCounter(); // or a stream/queue
 });

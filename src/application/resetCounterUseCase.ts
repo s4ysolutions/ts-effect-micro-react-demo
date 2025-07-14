@@ -1,8 +1,8 @@
 import { Micro } from "effect";
-import { CounterAdapterTag } from "../infra/counter-adapter";
+import { CounterRepositoryTag } from "./repo/counter-repos";
 
 const resetCounterUseCase = Micro.gen(function* () {
-  const counterAdapter = yield* Micro.service(CounterAdapterTag);
+  const counterAdapter = yield* Micro.service(CounterRepositoryTag);
   yield* counterAdapter.resetCounter();
 });
 
